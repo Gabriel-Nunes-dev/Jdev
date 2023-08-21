@@ -1,4 +1,4 @@
-package br.com.sistemaAluno.classe;
+package br.com.classe;
 
 public class StatusAluno {
 

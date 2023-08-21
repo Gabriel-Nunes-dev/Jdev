@@ -1,15 +1,18 @@
-package br.com.sistemaAluno.executavel;
+package br.com.executavel;
 
-import br.com.sistemaAluno.classe.Aluno;
-import br.com.sistemaAluno.classe.Disciplina;
-import br.com.sistemaAluno.classe.StatusAluno;
+import br.com.classe.Disciplina;
+import br.com.classe.Secretaria;
+import br.com.classe.StatusAluno;
+import br.com.classe.Aluno;
+import br.com.funcoes.FuncaoAutenticacao;
+import br.com.interfaces.PermitirAcesso;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static br.com.sistemaAluno.classe.Aluno.formatarCPF;
+import static br.com.classe.Aluno.formatarCPF;
 
 public class Exec {
     public static void main(String[] args) {
@@ -17,7 +20,9 @@ public class Exec {
         String login = JOptionPane.showInputDialog("Informe o login:");
         String senha = JOptionPane.showInputDialog("Informe a senha:");
 
-        if (login.equals("admin") && senha.equals("admin")) {
+        Secretaria secretaria = new Secretaria();
+
+        if (secretaria.autenticar(login, senha)) {
 
             List<Aluno> alunos = new ArrayList<>();
             HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
@@ -83,7 +88,7 @@ public class Exec {
 
             System.out.println(alunos);
         } else {
-            System.out.println("Login ou senha inválida");
+            JOptionPane.showMessageDialog(null, "Acesso negado");
         }
     }
 }

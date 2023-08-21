@@ -1,4 +1,4 @@
-package br.com.sistemaAluno.classe;
+package br.com.classe;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
